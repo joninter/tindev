@@ -1,20 +1,20 @@
-const {Schema, model } = require('mongoose')
+const { Schema, model } = require('mongoose')
 
 const DevSchema = new Schema({
-  name:{
+  name: {
     type: String,
-    required: true,
+    required: true
   },
-  user:{
-    type:String,
-    required: true,
-  },
-  bio:String,
-  avatar:{
+  user: {
     type: String,
-    required:true,
+    required: true
   },
-  likes:[{
+  bio: String,
+  avatar: {
+    type: String,
+    required: true
+  },
+  likes: [{
     type: Schema.Types.ObjectId,
     ref: 'Dev',
   }],
@@ -22,7 +22,9 @@ const DevSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Dev',
   }],
-},{
-  timestamps:true,
-});
-module.exports = model('Dev', DevSchema);
+}, {
+    // createAt, updateAt
+    timestamps: true
+  })
+
+module.exports = model('Dev', DevSchema)
